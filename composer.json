@@ -74,6 +74,9 @@
         ],
         "pre-package-uninstall": [
             "Illuminate\\Foundation\\ComposerScripts::prePackageUninstall"
+        ],
+        "deploy": [
+            "composer install --optimize-autoloader --no-scripts --no-interaction --ignore-platform-req=ext-zip"
         ]
     },
     "extra": {
@@ -85,6 +88,7 @@
         "optimize-autoloader": true,
         "preferred-install": "dist",
         "sort-packages": true,
+        "platform-check": false,
         "allow-plugins": {
             "pestphp/pest-plugin": true,
             "php-http/discovery": true
