@@ -59,15 +59,30 @@ class NovaServiceProvider extends \Illuminate\Support\ServiceProvider
      * Register the Nova gate.
      *
      * This gate determines who can access Nova in non-local environments.
+     * 
+     * IMPORTANT: If this gate returns false, Nova will NOT register routes at all,
+     * which results in 404 instead of 403. This is why we need to be careful here.
      */
     protected function gate(): void
     {
-        Gate::define('viewNova', function (User $user) {
+        Gate::define('viewNova', function (?User $user = null) {
+            // Allow access in local environment
+            if (app()->environment('local')) {
+                return true;
+            }
+
+            // If user is not authenticated, allow access to login page
+            // This ensures Nova routes are registered even when not logged in
+            if (!$user) {
+                return true;
+            }
+
+            // Check if user's email is in allowed list
             $allowedEmails = array_filter([
                 env('NOVA_USER_EMAIL'),
             ]);
             
-            return in_array($user->email, $allowedEmails) || app()->environment('local');
+            return in_array($user->email, $allowedEmails);
         });
     }
 
