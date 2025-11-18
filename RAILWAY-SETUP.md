@@ -16,7 +16,7 @@
 
 **Value:** 
 ```
-{"http-basic":{"nova.laravel.com":{"username":"prtftl","password":"GTsoRsPwzmB7xEYfipIMDo4o0E3FpGhXwlzfC47fam9733HSAl"}}}
+{"http-basic":{"nova.laravel.com":{"username":"maksstepenko@gmail.com","password":"GTsoRsPwzmB7xEYfipIMDo4o0E3FpGhXwlzfC47fam9733HSAl"}}}
 ```
 
 **Важно:** 
@@ -29,7 +29,7 @@
 
 **Переменная 1:**
 - **Key:** `COMPOSER_AUTH_NOVA_USERNAME`
-- **Value:** `prtftl`
+- **Value:** `maksstepenko@gmail.com`
 
 **Переменная 2:**
 - **Key:** `COMPOSER_AUTH_NOVA_PASSWORD`
@@ -98,12 +98,12 @@ php artisan db:seed --force
 
 ### Вариант 1 (одна переменная):
 ```
-COMPOSER_AUTH={"http-basic":{"nova.laravel.com":{"username":"prtftl","password":"GTsoRsPwzmB7xEYfipIMDo4o0E3FpGhXwlzfC47fam9733HSAl"}}}
+COMPOSER_AUTH={"http-basic":{"nova.laravel.com":{"username":"maksstepenko@gmail.com","password":"GTsoRsPwzmB7xEYfipIMDo4o0E3FpGhXwlzfC47fam9733HSAl"}}}
 ```
 
 ### Вариант 2 (две переменные):
 ```
-COMPOSER_AUTH_NOVA_USERNAME=prtftl
+COMPOSER_AUTH_NOVA_USERNAME=maksstepenko@gmail.com
 COMPOSER_AUTH_NOVA_PASSWORD=GTsoRsPwzmB7xEYfipIMDo4o0E3FpGhXwlzfC47fam9733HSAl
 ```
 

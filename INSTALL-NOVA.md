@@ -8,12 +8,12 @@
 
 **Вариант 1 (рекомендуется):**
 ```
-COMPOSER_AUTH={"http-basic":{"nova.laravel.com":{"username":"prtftl","password":"GTsoRsPwzmB7xEYfipIMDo4o0E3FpGhXwlzfC47fam9733HSAl"}}}
+COMPOSER_AUTH={"http-basic":{"nova.laravel.com":{"username":"maksstepenko@gmail.com","password":"GTsoRsPwzmB7xEYfipIMDo4o0E3FpGhXwlzfC47fam9733HSAl"}}}
 ```
 
 **Вариант 2:**
 ```
-COMPOSER_AUTH_NOVA_USERNAME=prtftl
+COMPOSER_AUTH_NOVA_USERNAME=maksstepenko@gmail.com
 COMPOSER_AUTH_NOVA_PASSWORD=GTsoRsPwzmB7xEYfipIMDo4o0E3FpGhXwlzfC47fam9733HSAl
 ```
 

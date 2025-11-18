@@ -11,7 +11,7 @@
 Добавьте переменную окружения:
 
 ```
-COMPOSER_AUTH={"http-basic":{"nova.laravel.com":{"username":"prtftl","password":"GTsoRsPwzmB7xEYfipIMDo4o0E3FpGhXwlzfC47fam9733HSAl"}}}
+COMPOSER_AUTH={"http-basic":{"nova.laravel.com":{"username":"maksstepenko@gmail.com","password":"GTsoRsPwzmB7xEYfipIMDo4o0E3FpGhXwlzfC47fam9733HSAl"}}}
 ```
 
 **Важно:** 
@@ -23,7 +23,7 @@ COMPOSER_AUTH={"http-basic":{"nova.laravel.com":{"username":"prtftl","password":
 
 Добавьте переменные:
 ```
-COMPOSER_AUTH_NOVA_USERNAME=prtftl
+COMPOSER_AUTH_NOVA_USERNAME=maksstepenko@gmail.com
 COMPOSER_AUTH_NOVA_PASSWORD=GTsoRsPwzmB7xEYfipIMDo4o0E3FpGhXwlzfC47fam9733HSAl
 ```
 
@@ -61,7 +61,7 @@ RUN composer install --optimize-autoloader --no-scripts --no-interaction --ignor
 
 Или используйте переменную окружения:
 ```dockerfile
-ENV COMPOSER_AUTH={"http-basic":{"nova.laravel.com":{"username":"prtftl","password":"GTsoRsPwzmB7xEYfipIMDo4o0E3FpGhXwlzfC47fam9733HSAl"}}}
+ENV COMPOSER_AUTH={"http-basic":{"nova.laravel.com":{"username":"maksstepenko@gmail.com","password":"GTsoRsPwzmB7xEYfipIMDo4o0E3FpGhXwlzfC47fam9733HSAl"}}}
 ```
 ```
 
@@ -82,7 +82,7 @@ ENV COMPOSER_AUTH={"http-basic":{"nova.laravel.com":{"username":"prtftl","passwo
 
 Если получаете ошибку "Missing or incorrect username / password combination":
 
-1. Убедитесь, что username правильный (prtftl)
+1. Убедитесь, что email правильный (maksstepenko@gmail.com)
 2. Убедитесь, что используется правильный лицензионный ключ (не пароль от аккаунта)
 3. Проверьте, что переменные окружения установлены правильно
 4. Проверьте, что `auth.json` создается перед `composer install`
