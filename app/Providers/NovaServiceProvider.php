@@ -82,6 +82,10 @@ class NovaServiceProvider extends \Illuminate\Support\ServiceProvider
             return [];
         }
 
+        if (!class_exists(\App\Nova\Dashboards\Main::class)) {
+            return [];
+        }
+
         return [
             new \App\Nova\Dashboards\Main,
         ];
@@ -102,8 +106,12 @@ class NovaServiceProvider extends \Illuminate\Support\ServiceProvider
      */
     public function register(): void
     {
-        parent::register();
+        // Не вызываем parent::register() если Nova не установлена
+        if (!class_exists(\Laravel\Nova\Nova::class)) {
+            return;
+        }
 
+        // Если нужно, можно вызвать parent::register() здесь
         //
     }
 }

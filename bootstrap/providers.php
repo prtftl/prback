@@ -5,7 +5,9 @@ $providers = [
 ];
 
 // Загружаем Nova только если пакет установлен
-if (class_exists(\Laravel\Nova\Nova::class)) {
+// Проверяем наличие основного класса Nova перед загрузкой провайдера
+if (class_exists(\Laravel\Nova\Nova::class) && 
+    class_exists(\Laravel\Nova\NovaApplicationServiceProvider::class)) {
     $providers[] = App\Providers\NovaServiceProvider::class;
 }
 
