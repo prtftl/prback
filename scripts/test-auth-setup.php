@@ -93,7 +93,7 @@ echo "\n";
 
 // Тест 3: Проверка с реальным форматом ключа
 echo "Тест 3: Проверка формата с реальным ключом\n";
-$realKey = '#a0420121-c03c-4856-a791-c408d579fdb6';
+$realKey = 'GTsoRsPwzmB7xEYfipIMDo4o0E3FpGhXwlzfC47fam9733HSAl';
 $realAuth = [
     'http-basic' => [
         'nova.laravel.com' => [

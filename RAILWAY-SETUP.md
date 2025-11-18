@@ -16,7 +16,7 @@
 
 **Value:** 
 ```
-{"http-basic":{"nova.laravel.com":{"username":"maksstepenko@gmail.com","password":"#a0420121-c03c-4856-a791-c408d579fdb6"}}}
+{"http-basic":{"nova.laravel.com":{"username":"maksstepenko@gmail.com","password":"GTsoRsPwzmB7xEYfipIMDo4o0E3FpGhXwlzfC47fam9733HSAl"}}}
 ```
 
 **Важно:** 
@@ -33,7 +33,7 @@
 
 **Переменная 2:**
 - **Key:** `COMPOSER_AUTH_NOVA_PASSWORD`
-- **Value:** `#a0420121-c03c-4856-a791-c408d579fdb6`
+- **Value:** `GTsoRsPwzmB7xEYfipIMDo4o0E3FpGhXwlzfC47fam9733HSAl`
 
 ## Шаг 2: Настройка команды деплоя в Railway
 
@@ -71,7 +71,7 @@ php scripts/setup-auth.php && composer install --optimize-autoloader --no-script
 
 **Переменная 6 (опционально):**
 - **Key:** `NOVA_LICENSE_KEY`
-- **Value:** `#a0420121-c03c-4856-a791-c408d579fdb6`
+- **Value:** `GTsoRsPwzmB7xEYfipIMDo4o0E3FpGhXwlzfC47fam9733HSAl`
 
 ## Шаг 4: Настройка команды запуска после деплоя
 
