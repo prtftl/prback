@@ -79,7 +79,7 @@
             "Illuminate\\Foundation\\ComposerScripts::prePackageUninstall"
         ],
         "deploy": [
-            "composer install --optimize-autoloader --no-scripts --no-interaction --ignore-platform-req=ext-zip"
+            "composer install --optimize-autoloader --no-interaction --ignore-platform-req=ext-zip"
         ]
     },
     "extra": {

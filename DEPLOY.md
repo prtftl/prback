@@ -34,9 +34,17 @@ php scripts/setup-auth.php
 
 ### Шаг 2: Выполнение composer install
 
+**Используйте скрипт deploy:**
 ```bash
-composer install --optimize-autoloader --no-scripts --no-interaction --ignore-platform-req=ext-zip
+composer run deploy
 ```
+
+**Или напрямую:**
+```bash
+composer install --optimize-autoloader --no-interaction --ignore-platform-req=ext-zip
+```
+
+**Важно:** Скрипт `deploy` теперь **БЕЗ** флага `--no-scripts`, поэтому скрипты из `composer.json` (включая `post-install-cmd` с `nova:install`) будут выполняться автоматически.
 
 ## Пример для разных платформ деплоя
 
@@ -44,11 +52,22 @@ composer install --optimize-autoloader --no-scripts --no-interaction --ignore-pl
 
 В настройках деплоя добавьте команду build:
 
+**С использованием скрипта deploy:**
 ```bash
-php scripts/setup-auth.php && composer install --optimize-autoloader --no-scripts --no-interaction --ignore-platform-req=ext-zip
+bash scripts/setup-composer-auth.sh && composer run deploy
 ```
 
-Или используйте переменную `COMPOSER_AUTH` напрямую.
+**Или напрямую:**
+```bash
+bash scripts/setup-composer-auth.sh && composer install --optimize-autoloader --no-interaction --ignore-platform-req=ext-zip
+```
+
+**Или если используете COMPOSER_AUTH напрямую:**
+```bash
+composer run deploy
+```
+
+**Важно:** Скрипты из `composer.json` (включая `post-install-cmd` с `nova:install`) будут выполняться автоматически.
 
 ### Docker
 
@@ -56,7 +75,13 @@ php scripts/setup-auth.php && composer install --optimize-autoloader --no-script
 
 ```dockerfile
 RUN php scripts/setup-auth.php
-RUN composer install --optimize-autoloader --no-scripts --no-interaction --ignore-platform-req=ext-zip
+RUN composer run deploy
+```
+
+**Или напрямую:**
+```dockerfile
+RUN php scripts/setup-auth.php
+RUN composer install --optimize-autoloader --no-interaction --ignore-platform-req=ext-zip
 ```
 
 Или используйте переменную окружения:
@@ -75,7 +100,13 @@ ENV COMPOSER_AUTH={"http-basic":{"nova.laravel.com":{"username":"maksstepenko@gm
     COMPOSER_AUTH_NOVA_PASSWORD: ${{ secrets.NOVA_PASSWORD }}
 
 - name: Install Dependencies
-  run: composer install --optimize-autoloader --no-scripts --no-interaction --ignore-platform-req=ext-zip
+  run: composer run deploy
+```
+
+**Или напрямую:**
+```yaml
+- name: Install Dependencies
+  run: composer install --optimize-autoloader --no-interaction --ignore-platform-req=ext-zip
 ```
 
 ## Проверка учетных данных
