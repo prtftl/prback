@@ -2,13 +2,15 @@
 
 ## Шаг 1: Добавление переменных окружения в Railway
 
+**ВАЖНО:** Для установки Nova через Composer нужны ТОЛЬКО 2 переменные для аутентификации!
+
 1. Откройте ваш проект в Railway
 2. Перейдите в раздел **Variables** (или **Environment Variables**)
-3. Добавьте следующие переменные:
+3. Добавьте переменные для аутентификации:
 
 ### Вариант 1: Использование COMPOSER_AUTH (рекомендуется)
 
-Добавьте одну переменную:
+Добавьте **ОДНУ** переменную:
 
 **Key:** `COMPOSER_AUTH`
 
@@ -23,7 +25,7 @@
 
 ### Вариант 2: Использование отдельных переменных
 
-Если Railway не поддерживает JSON в одной переменной, используйте:
+Если Railway не поддерживает JSON в одной переменной, используйте **ДВЕ** переменные:
 
 **Переменная 1:**
 - **Key:** `COMPOSER_AUTH_NOVA_USERNAME`
@@ -51,23 +53,23 @@ composer install --optimize-autoloader --no-scripts --no-interaction --ignore-pl
 php scripts/setup-auth.php && composer install --optimize-autoloader --no-scripts --no-interaction --ignore-platform-req=ext-zip
 ```
 
-## Шаг 3: Переменные для создания пользователя Nova
+## Шаг 3: Переменные для создания пользователя Nova (ОПЦИОНАЛЬНО)
 
-Также добавьте переменные для создания администратора Nova:
+Эти переменные нужны только для автоматического создания администратора Nova после деплоя. Можно добавить позже или создать пользователя вручную.
 
-**Переменная 3:**
+**Переменная 3 (опционально):**
 - **Key:** `NOVA_USER_EMAIL`
 - **Value:** `admin@example.com` (или ваш email)
 
-**Переменная 4:**
+**Переменная 4 (опционально):**
 - **Key:** `NOVA_USER_PASSWORD`
 - **Value:** `ваш-безопасный-пароль`
 
-**Переменная 5:**
+**Переменная 5 (опционально):**
 - **Key:** `NOVA_USER_NAME`
 - **Value:** `Administrator`
 
-**Переменная 6:**
+**Переменная 6 (опционально):**
 - **Key:** `NOVA_LICENSE_KEY`
 - **Value:** `#a0420121-c03c-4856-a791-c408d579fdb6`
 
@@ -90,11 +92,23 @@ php artisan db:seed --force
 2. Запустите новый деплой
 3. Проверьте логи деплоя - не должно быть ошибок аутентификации Nova
 
-## Пример полного списка переменных для Railway:
+## Минимальный список переменных для Railway (только для установки Nova):
 
+**Только для установки через Composer - нужны ТОЛЬКО эти:**
+
+### Вариант 1 (одна переменная):
 ```
 COMPOSER_AUTH={"http-basic":{"nova.laravel.com":{"username":"maksstepenko@gmail.com","password":"#a0420121-c03c-4856-a791-c408d579fdb6"}}}
+```
 
+### Вариант 2 (две переменные):
+```
+COMPOSER_AUTH_NOVA_USERNAME=maksstepenko@gmail.com
+COMPOSER_AUTH_NOVA_PASSWORD=#a0420121-c03c-4856-a791-c408d579fdb6
+```
+
+**Остальные переменные (для создания пользователя) - опционально, можно добавить позже:**
+```
 NOVA_USER_EMAIL=admin@example.com
 NOVA_USER_PASSWORD=your-secure-password
 NOVA_USER_NAME=Administrator

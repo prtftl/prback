@@ -2,9 +2,9 @@
 
 ## Required Environment Variables
 
-### For Nova Authentication (Composer)
+### For Nova Authentication (Composer) - ОБЯЗАТЕЛЬНО
 
-Для установки Laravel Nova через Composer требуется аутентификация. Добавьте следующие переменные окружения:
+**ВАЖНО:** Для установки Nova через Composer нужны ТОЛЬКО переменные для аутентификации (1 или 2 переменные).
 
 **Вариант 1: Использование COMPOSER_AUTH (рекомендуется)**
 
@@ -32,7 +32,9 @@ COMPOSER_AUTH_NOVA_PASSWORD=#a0420121-c03c-4856-a791-c408d579fdb6
 
 **Примечание:** Скрипт автоматически создаст `auth.json` или установит `COMPOSER_AUTH` из отдельных переменных.
 
-### For Nova Admin User
+### For Nova Admin User (ОПЦИОНАЛЬНО)
+
+Эти переменные нужны только для автоматического создания администратора Nova. Можно добавить позже или создать пользователя вручную через Nova интерфейс.
 
 ```bash
 NOVA_USER_EMAIL=admin@example.com
