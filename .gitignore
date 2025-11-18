@@ -11,6 +11,8 @@
 Homestead.json
 Homestead.yaml
 auth.json
+/bootstrap/cache/*
+!/bootstrap/cache/.gitignore
 npm-debug.log
 yarn-error.log
 /.fleet
