@@ -13,10 +13,15 @@ RUN apk add --no-cache \
     nodejs \
     npm \
     oniguruma-dev \
-    postgresql-dev
+    postgresql-dev \
+    mysql-dev \
+    freetype-dev \
+    libjpeg-turbo-dev \
+    libwebp-dev
 
 # Install PHP extensions
-RUN docker-php-ext-install \
+RUN docker-php-ext-configure gd --with-freetype --with-jpeg --with-webp && \
+    docker-php-ext-install -j$(nproc) \
     pdo \
     pdo_pgsql \
     pdo_mysql \
@@ -78,15 +83,24 @@ RUN chown -R www-data:www-data /app \
 # Production stage
 FROM php:8.2-cli-alpine
 
-# Install system dependencies (runtime only)
+# Install system dependencies (runtime + build deps for extensions)
 RUN apk add --no-cache \
     libpng \
     libzip \
     oniguruma \
-    postgresql-libs
+    postgresql-libs \
+    libpng-dev \
+    libzip-dev \
+    oniguruma-dev \
+    postgresql-dev \
+    mysql-dev \
+    freetype-dev \
+    libjpeg-turbo-dev \
+    libwebp-dev
 
 # Install PHP extensions
-RUN docker-php-ext-install \
+RUN docker-php-ext-configure gd --with-freetype --with-jpeg --with-webp && \
+    docker-php-ext-install -j$(nproc) \
     pdo \
     pdo_pgsql \
     pdo_mysql \
@@ -96,6 +110,17 @@ RUN docker-php-ext-install \
     bcmath \
     gd \
     zip
+
+# Clean up build dependencies
+RUN apk del --no-cache \
+    libpng-dev \
+    libzip-dev \
+    oniguruma-dev \
+    postgresql-dev \
+    mysql-dev \
+    freetype-dev \
+    libjpeg-turbo-dev \
+    libwebp-dev
 
 # Copy application from builder
 COPY --from=builder /app /app
