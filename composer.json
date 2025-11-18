@@ -75,6 +75,9 @@
         "pre-package-uninstall": [
             "Illuminate\\Foundation\\ComposerScripts::prePackageUninstall"
         ],
+        "pre-install-cmd": [
+            "@php -r \"if (getenv('COMPOSER_AUTH_NOVA_USERNAME') && getenv('COMPOSER_AUTH_NOVA_PASSWORD')) { file_put_contents('auth.json', json_encode(['http-basic' => ['nova.laravel.com' => ['username' => getenv('COMPOSER_AUTH_NOVA_USERNAME'), 'password' => getenv('COMPOSER_AUTH_NOVA_PASSWORD')]]], JSON_PRETTY_PRINT)); }\""
+        ],
         "deploy": [
             "composer install --optimize-autoloader --no-scripts --no-interaction --ignore-platform-req=ext-zip"
         ]
