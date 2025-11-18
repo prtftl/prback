@@ -19,7 +19,20 @@ COMPOSER_AUTH_NOVA_PASSWORD=GTsoRsPwzmB7xEYfipIMDo4o0E3FpGhXwlzfC47fam9733HSAl
 
 ## Шаг 2: Обновите composer.json
 
-Добавьте Nova обратно в `composer.json`:
+**ВАЖНО:** Сначала добавьте репозиторий Nova, затем пакет.
+
+Добавьте репозиторий Nova в `composer.json`:
+
+```json
+"repositories": [
+    {
+        "type": "composer",
+        "url": "https://nova.laravel.com"
+    }
+],
+```
+
+Затем добавьте Nova в зависимости:
 
 ```json
 "require": {
@@ -39,17 +52,6 @@ COMPOSER_AUTH_NOVA_PASSWORD=GTsoRsPwzmB7xEYfipIMDo4o0E3FpGhXwlzfC47fam9733HSAl
     "nunomaduro/collision": "^8.6",
     "phpunit/phpunit": "^11.5.3"
 },
-```
-
-И убедитесь, что репозиторий Nova добавлен:
-
-```json
-"repositories": [
-    {
-        "type": "composer",
-        "url": "https://nova.laravel.com"
-    }
-],
 ```
 
 ## Шаг 3: Установите Nova
