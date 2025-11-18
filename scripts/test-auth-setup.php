@@ -97,7 +97,7 @@ $realKey = 'GTsoRsPwzmB7xEYfipIMDo4o0E3FpGhXwlzfC47fam9733HSAl';
 $realAuth = [
     'http-basic' => [
         'nova.laravel.com' => [
-            'username' => 'maksstepenko@gmail.com',
+            'username' => 'prtftl',
             'password' => $realKey,
         ],
     ],
