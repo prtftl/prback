@@ -24,7 +24,7 @@ COMPOSER_AUTH={"http-basic":{"nova.laravel.com":{"username":"maksstepenko@gmail.
 Добавьте переменные:
 ```
 COMPOSER_AUTH_NOVA_USERNAME=maksstepenko@gmail.com
-COMPOSER_AUTH_NOVA_PASSWORD=#a0420121-c03c-4856-a791-c408d579fdb6
+COMPOSER_AUTH_NOVA_PASSWORD=GTsoRsPwzmB7xEYfipIMDo4o0E3FpGhXwlzfC47fam9733HSAl
 ```
 
 И выполните перед `composer install`:

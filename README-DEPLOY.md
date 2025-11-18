@@ -11,7 +11,7 @@
 Установите переменную окружения `COMPOSER_AUTH` со следующим значением (JSON в одну строку, без пробелов):
 
 ```bash
-COMPOSER_AUTH={"http-basic":{"nova.laravel.com":{"username":"maksstepenko@gmail.com","password":"#a0420121-c03c-4856-a791-c408d579fdb6"}}}
+COMPOSER_AUTH={"http-basic":{"nova.laravel.com":{"username":"maksstepenko@gmail.com","password":"GTsoRsPwzmB7xEYfipIMDo4o0E3FpGhXwlzfC47fam9733HSAl"}}}
 ```
 
 **Важно:** Убедитесь, что значение не содержит пробелов и правильно экранировано для вашей платформы деплоя.
@@ -22,7 +22,7 @@ COMPOSER_AUTH={"http-basic":{"nova.laravel.com":{"username":"maksstepenko@gmail.
 
 ```bash
 COMPOSER_AUTH_NOVA_USERNAME=maksstepenko@gmail.com
-COMPOSER_AUTH_NOVA_PASSWORD=#a0420121-c03c-4856-a791-c408d579fdb6
+COMPOSER_AUTH_NOVA_PASSWORD=GTsoRsPwzmB7xEYfipIMDo4o0E3FpGhXwlzfC47fam9733HSAl
 ```
 
 И выполните перед `composer install`:
@@ -40,7 +40,7 @@ COMPOSER_AUTH_NOVA_PASSWORD=#a0420121-c03c-4856-a791-c408d579fdb6
 NOVA_USER_EMAIL=admin@example.com
 NOVA_USER_PASSWORD=your-secure-password
 NOVA_USER_NAME=Administrator
-NOVA_LICENSE_KEY=#a0420121-c03c-4856-a791-c408d579fdb6
+NOVA_LICENSE_KEY=GTsoRsPwzmB7xEYfipIMDo4o0E3FpGhXwlzfC47fam9733HSAl
 ```
 
 ## Deploy Command
