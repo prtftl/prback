@@ -1,227 +1,59 @@
-# Laravel Backend с Nova и Sanctum для SPA
+<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
 
-Этот репозиторий содержит бекенд на Laravel 11 с интеграцией Laravel Nova и Laravel Sanctum, настроенный для работы как API для Single Page Application (SPA) без CSRF токенов.
+<p align="center">
+<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
+<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
+<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
+<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
+</p>
 
-## 🚀 Особенности
+## About Laravel
 
-- **Laravel 11** - последняя версия фреймворка
-- **Laravel Nova** - административная панель
-- **Laravel Sanctum** - аутентификация для SPA (без CSRF)
-- **Railway Ready** - готов к деплою на Railway
-- **CORS настроен** - поддержка кросс-доменных запросов для SPA
+Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
 
-## 📋 Требования
+- [Simple, fast routing engine](https://laravel.com/docs/routing).
+- [Powerful dependency injection container](https://laravel.com/docs/container).
+- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
+- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
+- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
+- [Robust background job processing](https://laravel.com/docs/queues).
+- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
 
-- PHP >= 8.2
-- Composer
-- MySQL/PostgreSQL/SQLite
-- Node.js и NPM (для фронтенда, если нужно)
+Laravel is accessible, powerful, and provides tools required for large, robust applications.
 
-## 🔧 Установка
+## Learning Laravel
 
-1. **Клонируйте репозиторий:**
-```bash
-git clone <your-repo-url>
-cd PRFRONT
-```
+Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework. You can also check out [Laravel Learn](https://laravel.com/learn), where you will be guided through building a modern Laravel application.
 
-2. **Установите зависимости:**
-```bash
-composer install
-```
+If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
 
-3. **Настройте файл окружения:**
-```bash
-cp .env.example .env
-php artisan key:generate
-```
+## Laravel Sponsors
 
-4. **Настройте базу данных в `.env`:**
-```env
-DB_CONNECTION=mysql
-DB_HOST=127.0.0.1
-DB_PORT=3306
-DB_DATABASE=laravel
-DB_USERNAME=root
-DB_PASSWORD=
-```
+We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
 
-5. **Настройте Sanctum для SPA в `.env`:**
-```env
-SANCTUM_STATEFUL_DOMAINS=localhost,127.0.0.1,localhost:3000,localhost:5173
-SESSION_DOMAIN=localhost
-```
+### Premium Partners
 
-6. **Запустите миграции:**
-```bash
-php artisan migrate
-```
+- **[Vehikl](https://vehikl.com)**
+- **[Tighten Co.](https://tighten.co)**
+- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
+- **[64 Robots](https://64robots.com)**
+- **[Curotec](https://www.curotec.com/services/technologies/laravel)**
+- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
+- **[Redberry](https://redberry.international/laravel-development)**
+- **[Active Logic](https://activelogic.com)**
 
-7. **Настройте авторизацию для Nova:**
+## Contributing
 
-   Nova - это платный продукт Laravel. Для установки нужно настроить авторизацию:
-   
-   **Вариант 1: Создайте `auth.json` файл (для локальной разработки):**
-   ```bash
-   cp auth.json.example auth.json
-   ```
-   Затем отредактируйте `auth.json` и укажите ваш email и лицензионный ключ Nova.
-   
-   **Вариант 2: Используйте переменную окружения:**
-   ```bash
-   export COMPOSER_AUTH='{"http-basic":{"nova.laravel.com":{"username":"your-email@example.com","password":"your-nova-license-key"}}}'
-   ```
-   
-   После настройки авторизации Nova установится автоматически при выполнении `composer install`.
+Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
 
-8. **Добавьте лицензионный ключ Nova в `.env`:**
-```env
-NOVA_LICENSE_KEY=your-nova-license-key
-```
+## Code of Conduct
 
-## 🔐 Настройка Sanctum для SPA
+In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
 
-Проект настроен для работы с SPA без CSRF токенов:
+## Security Vulnerabilities
 
-- **API маршруты** (`/api/*`) не требуют CSRF защиты
-- **CORS настроен** для работы с фронтендом
-- **Stateful домены** указаны в `SANCTUM_STATEFUL_DOMAINS`
+If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
 
-### Пример использования в фронтенде:
+## License
 
-```javascript
-// Инициализация (получение CSRF cookie)
-await axios.get('http://localhost:8000/sanctum/csrf-cookie', {
-  withCredentials: true
-})
-
-// Логин
-await axios.post('http://localhost:8000/login', {
-  email: 'user@example.com',
-  password: 'password'
-}, {
-  withCredentials: true
-})
-
-// Защищенные API запросы
-await axios.get('http://localhost:8000/api/user', {
-  withCredentials: true
-})
-```
-
-**Важно:** Для работы Sanctum в SPA режиме все запросы должны включать `withCredentials: true`.
-
-## 🚂 Деплой на Railway
-
-### Подготовка к деплою:
-
-1. **Создайте аккаунт на [Railway](https://railway.app)**
-
-2. **Подключите репозиторий:**
-   - В Railway создайте новый проект
-   - Выберите "Deploy from GitHub repo"
-   - Подключите этот репозиторий
-
-3. **Настройте переменные окружения в Railway:**
-   
-   Обязательные переменные:
-   ```
-   APP_KEY=base64:... (сгенерируйте: php artisan key:generate --show)
-   APP_ENV=production
-   APP_DEBUG=false
-   APP_URL=https://your-app.railway.app
-   
-   DB_CONNECTION=mysql
-   DB_HOST=${{MySQL.MYSQLHOST}}
-   DB_PORT=${{MySQL.MYSQLPORT}}
-   DB_DATABASE=${{MySQL.MYSQLDATABASE}}
-   DB_USERNAME=${{MySQL.MYSQLUSER}}
-   DB_PASSWORD=${{MySQL.MYSQLPASSWORD}}
-   
-   SANCTUM_STATEFUL_DOMAINS=your-frontend-domain.com,your-railway-app.railway.app
-   SESSION_DOMAIN=.railway.app
-   
-   NOVA_LICENSE_KEY=your-nova-license-key
-   
-   # Nova авторизация для Composer (нужно для установки Nova)
-   COMPOSER_AUTH={"http-basic":{"nova.laravel.com":{"username":"your-email@example.com","password":"your-nova-license-key"}}}
-   ```
-
-4. **Добавьте MySQL сервис:**
-   - В Railway добавьте MySQL сервис
-   - Railway автоматически предоставит переменные окружения `${{MySQL.*}}`
-
-5. **Настройте команды запуска:**
-   
-   Railway автоматически использует `Procfile` или `railway.json`:
-   - **Procfile**: `web: php artisan serve --host=0.0.0.0 --port=$PORT`
-   - Или через `railway.json` с автоматической сборкой
-
-### Автоматический деплой:
-
-Railway автоматически:
-1. Определит PHP проект через `composer.json`
-2. Выполнит `composer install --no-dev`
-3. Запустит миграции (если настроено)
-4. Запустит приложение через `Procfile`
-
-### Выполнение миграций на Railway:
-
-В настройках сервиса Railway добавьте команду сборки:
-```bash
-composer install --no-dev --optimize-autoloader && php artisan nova:install --no-interaction && php artisan migrate --force && php artisan config:cache && php artisan route:cache && php artisan view:cache
-```
-
-Или через Railway CLI:
-```bash
-railway run php artisan migrate --force
-```
-
-## 📁 Структура проекта
-
-```
-PRFRONT/
-├── app/                    # Код приложения
-│   ├── Http/
-│   │   └── Middleware/     # Middleware для CORS и Sanctum
-│   └── Providers/          # Service Providers
-├── bootstrap/
-│   └── app.php            # Конфигурация Laravel 11 (Sanctum без CSRF)
-├── config/                # Конфигурационные файлы
-│   ├── sanctum.php        # Настройки Sanctum для SPA
-│   ├── cors.php           # CORS конфигурация
-│   └── session.php        # Настройки сессий
-├── routes/
-│   ├── api.php            # API маршруты
-│   └── web.php            # Web маршруты
-├── railway.json           # Конфигурация Railway
-├── Procfile              # Команда запуска для Railway
-├── nixpacks.toml         # Альтернативная конфигурация деплоя
-└── composer.json         # Зависимости PHP
-```
-
-## 🔍 Важные замечания
-
-### CSRF защита отключена для API:
-- API маршруты (`/api/*`) не требуют CSRF токенов
-- Web маршруты защищены CSRF по умолчанию
-- Sanctum работает в SPA режиме с cookie-based аутентификацией
-
-### CORS настройки:
-- Измените `CORS_ALLOWED_ORIGINS` в `.env` для вашего фронтенда
-- Или настройте `allowed_origins` в `config/cors.php`
-
-### HTTPS на Railway:
-- В `AppServiceProvider` автоматически включается HTTPS в production
-- Railway автоматически предоставляет SSL сертификаты
-
-## 🧪 Тестирование
-
-```bash
-php artisan test
-```
-
-## 📝 Лицензия
-
-MIT
-
+The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
