@@ -59,6 +59,22 @@ composer install --optimize-autoloader --no-scripts --no-interaction --ignore-pl
 composer install --optimize-autoloader --no-scripts --no-interaction --ignore-platform-req=ext-zip
 ```
 
+## Тестирование настройки аутентификации
+
+Для проверки работы скриптов и формата (без реального ключа) используйте:
+
+```bash
+php scripts/test-auth-setup.php
+```
+
+Этот скрипт проверит:
+- ✓ Создание auth.json
+- ✓ Валидность JSON
+- ✓ Правильность структуры
+- ✓ Формат COMPOSER_AUTH
+
+**Примечание:** Для реальной установки Nova требуется действующий лицензионный ключ. Тестовый скрипт проверяет только формат и работу скриптов.
+
 ## После деплоя
 
 Выполните миграции и сидер для создания пользователя Nova:
