@@ -82,12 +82,14 @@ class NovaServiceProvider extends \Illuminate\Support\ServiceProvider
             return [];
         }
 
-        if (!class_exists(\App\Nova\Dashboards\Main::class)) {
+        // Проверяем, что класс Main существует (может быть в Nova.disabled)
+        $mainClass = \App\Nova\Dashboards\Main::class;
+        if (!class_exists($mainClass)) {
             return [];
         }
 
         return [
-            new \App\Nova\Dashboards\Main,
+            new $mainClass,
         ];
     }
 
