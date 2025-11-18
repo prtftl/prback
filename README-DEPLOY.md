@@ -9,7 +9,7 @@
 **Вариант 1: Использование COMPOSER_AUTH (рекомендуется)**
 
 ```bash
-COMPOSER_AUTH='{"http-basic":{"nova.laravel.com":{"username":"your-email@example.com","password":"your-nova-license-key"}}}'
+COMPOSER_AUTH={"http-basic":{"nova.laravel.com":{"username":"maksstepenko@gmail.com","password":"1XWBgpHKrgUbrWEs4i2dtHPRO3stnWSl0xSNgZOiLAoIUMlKJi"}}}
 ```
 
 **Вариант 2: Использование отдельных переменных**
@@ -17,14 +17,16 @@ COMPOSER_AUTH='{"http-basic":{"nova.laravel.com":{"username":"your-email@example
 Если ваша платформа деплоя поддерживает создание файлов перед установкой, используйте:
 
 ```bash
-COMPOSER_AUTH_NOVA_USERNAME=your-email@example.com
-COMPOSER_AUTH_NOVA_PASSWORD=your-nova-license-key
+COMPOSER_AUTH_NOVA_USERNAME=maksstepenko@gmail.com
+COMPOSER_AUTH_NOVA_PASSWORD=1XWBgpHKrgUbrWEs4i2dtHPRO3stnWSl0xSNgZOiLAoIUMlKJi
 ```
 
 И выполните перед `composer install`:
 ```bash
 ./scripts/setup-composer-auth.sh
 ```
+
+**Примечание:** Скрипт автоматически создаст `auth.json` или установит `COMPOSER_AUTH` из отдельных переменных.
 
 ### For Nova Admin User
 
