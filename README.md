@@ -57,12 +57,24 @@ SESSION_DOMAIN=localhost
 php artisan migrate
 ```
 
-7. **Установите Nova:**
-```bash
-php artisan nova:install
-```
+7. **Настройте авторизацию для Nova:**
 
-После установки добавьте лицензионный ключ Nova в `.env`:
+   Nova - это платный продукт Laravel. Для установки нужно настроить авторизацию:
+   
+   **Вариант 1: Создайте `auth.json` файл (для локальной разработки):**
+   ```bash
+   cp auth.json.example auth.json
+   ```
+   Затем отредактируйте `auth.json` и укажите ваш email и лицензионный ключ Nova.
+   
+   **Вариант 2: Используйте переменную окружения:**
+   ```bash
+   export COMPOSER_AUTH='{"http-basic":{"nova.laravel.com":{"username":"your-email@example.com","password":"your-nova-license-key"}}}'
+   ```
+   
+   После настройки авторизации Nova установится автоматически при выполнении `composer install`.
+
+8. **Добавьте лицензионный ключ Nova в `.env`:**
 ```env
 NOVA_LICENSE_KEY=your-nova-license-key
 ```
@@ -130,6 +142,9 @@ await axios.get('http://localhost:8000/api/user', {
    SESSION_DOMAIN=.railway.app
    
    NOVA_LICENSE_KEY=your-nova-license-key
+   
+   # Nova авторизация для Composer (нужно для установки Nova)
+   COMPOSER_AUTH={"http-basic":{"nova.laravel.com":{"username":"your-email@example.com","password":"your-nova-license-key"}}}
    ```
 
 4. **Добавьте MySQL сервис:**

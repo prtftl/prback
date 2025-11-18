@@ -1,0 +1,9 @@
+{
+    "http-basic": {
+        "nova.laravel.com": {
+            "username": "your-email@example.com",
+            "password": "your-nova-license-key"
+        }
+    }
+}
+
