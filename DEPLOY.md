@@ -82,7 +82,7 @@ ENV COMPOSER_AUTH={"http-basic":{"nova.laravel.com":{"username":"prtftl","passwo
 
 Если получаете ошибку "Missing or incorrect username / password combination":
 
-1. Убедитесь, что email правильный (maksstepenko@gmail.com)
+1. Убедитесь, что username правильный (prtftl)
 2. Убедитесь, что используется правильный лицензионный ключ (не пароль от аккаунта)
 3. Проверьте, что переменные окружения установлены правильно
 4. Проверьте, что `auth.json` создается перед `composer install`
