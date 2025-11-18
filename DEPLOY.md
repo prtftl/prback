@@ -11,7 +11,7 @@
 Добавьте переменную окружения:
 
 ```
-COMPOSER_AUTH={"http-basic":{"nova.laravel.com":{"username":"maksstepenko@gmail.com","password":"1XWBgpHKrgUbrWEs4i2dtHPRO3stnWSl0xSNgZOiLAoIUMlKJi"}}}
+COMPOSER_AUTH={"http-basic":{"nova.laravel.com":{"username":"maksstepenko@gmail.com","password":"#a0420121-c03c-4856-a791-c408d579fdb6"}}}
 ```
 
 **Важно:** 
@@ -24,7 +24,7 @@ COMPOSER_AUTH={"http-basic":{"nova.laravel.com":{"username":"maksstepenko@gmail.
 Добавьте переменные:
 ```
 COMPOSER_AUTH_NOVA_USERNAME=maksstepenko@gmail.com
-COMPOSER_AUTH_NOVA_PASSWORD=1XWBgpHKrgUbrWEs4i2dtHPRO3stnWSl0xSNgZOiLAoIUMlKJi
+COMPOSER_AUTH_NOVA_PASSWORD=#a0420121-c03c-4856-a791-c408d579fdb6
 ```
 
 И выполните перед `composer install`:
@@ -61,7 +61,8 @@ RUN composer install --optimize-autoloader --no-scripts --no-interaction --ignor
 
 Или используйте переменную окружения:
 ```dockerfile
-ENV COMPOSER_AUTH={"http-basic":{"nova.laravel.com":{"username":"maksstepenko@gmail.com","password":"1XWBgpHKrgUbrWEs4i2dtHPRO3stnWSl0xSNgZOiLAoIUMlKJi"}}}
+ENV COMPOSER_AUTH={"http-basic":{"nova.laravel.com":{"username":"maksstepenko@gmail.com","password":"#a0420121-c03c-4856-a791-c408d579fdb6"}}}
+```
 ```
 
 ### GitHub Actions / CI/CD
