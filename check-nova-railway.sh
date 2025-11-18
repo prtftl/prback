@@ -20,7 +20,7 @@ echo ""
 
 echo "3. Проверка классов Nova:"
 echo "-----------------------------------"
-php -r "echo class_exists('Laravel\Nova\Nova') ? 'Nova classes: ✅ YES' : 'Nova classes: ❌ NO';"
+php -r "require 'vendor/autoload.php'; echo class_exists('Laravel\Nova\Nova') ? 'Nova classes: ✅ YES' : 'Nova classes: ❌ NO';"
 echo ""
 echo ""
 
