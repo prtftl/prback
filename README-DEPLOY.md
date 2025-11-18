@@ -8,9 +8,13 @@
 
 **Вариант 1: Использование COMPOSER_AUTH (рекомендуется)**
 
+Установите переменную окружения `COMPOSER_AUTH` со следующим значением (JSON в одну строку, без пробелов):
+
 ```bash
 COMPOSER_AUTH={"http-basic":{"nova.laravel.com":{"username":"maksstepenko@gmail.com","password":"1XWBgpHKrgUbrWEs4i2dtHPRO3stnWSl0xSNgZOiLAoIUMlKJi"}}}
 ```
+
+**Важно:** Убедитесь, что значение не содержит пробелов и правильно экранировано для вашей платформы деплоя.
 
 **Вариант 2: Использование отдельных переменных**
 
@@ -38,6 +42,18 @@ NOVA_LICENSE_KEY=your-nova-license-key
 ```
 
 ## Deploy Command
+
+**ВАЖНО:** Перед выполнением `composer install` необходимо создать `auth.json`:
+
+```bash
+# Создать auth.json из переменных окружения
+php scripts/setup-auth.php
+
+# Затем выполнить установку
+composer install --optimize-autoloader --no-scripts --no-interaction --ignore-platform-req=ext-zip
+```
+
+Или если используете COMPOSER_AUTH напрямую:
 
 ```bash
 composer install --optimize-autoloader --no-scripts --no-interaction --ignore-platform-req=ext-zip
