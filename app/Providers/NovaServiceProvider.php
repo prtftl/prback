@@ -4,20 +4,21 @@ namespace App\Providers;
 
 use App\Models\User;
 use Illuminate\Support\Facades\Gate;
-use Laravel\Fortify\Features;
-use Laravel\Nova\Nova;
-use Laravel\Nova\NovaApplicationServiceProvider;
 
-class NovaServiceProvider extends NovaApplicationServiceProvider
+class NovaServiceProvider extends \Illuminate\Support\ServiceProvider
 {
     /**
      * Bootstrap any application services.
      */
     public function boot(): void
     {
-        parent::boot();
+        if (!class_exists(\Laravel\Nova\Nova::class)) {
+            return;
+        }
 
-        //
+        $this->fortify();
+        $this->routes();
+        $this->gate();
     }
 
     /**
@@ -25,9 +26,13 @@ class NovaServiceProvider extends NovaApplicationServiceProvider
      */
     protected function fortify(): void
     {
-        Nova::fortify()
+        if (!class_exists(\Laravel\Nova\Nova::class)) {
+            return;
+        }
+
+        \Laravel\Nova\Nova::fortify()
             ->features([
-                Features::updatePasswords(),
+                \Laravel\Fortify\Features::updatePasswords(),
                 // Features::emailVerification(),
                 // Features::twoFactorAuthentication(['confirm' => true, 'confirmPassword' => true]),
             ])
@@ -39,7 +44,11 @@ class NovaServiceProvider extends NovaApplicationServiceProvider
      */
     protected function routes(): void
     {
-        Nova::routes()
+        if (!class_exists(\Laravel\Nova\Nova::class)) {
+            return;
+        }
+
+        \Laravel\Nova\Nova::routes()
             ->withAuthenticationRoutes(default: true)
             ->withPasswordResetRoutes()
             ->withoutEmailVerificationRoutes()
@@ -69,6 +78,10 @@ class NovaServiceProvider extends NovaApplicationServiceProvider
      */
     protected function dashboards(): array
     {
+        if (!class_exists(\Laravel\Nova\Nova::class)) {
+            return [];
+        }
+
         return [
             new \App\Nova\Dashboards\Main,
         ];
