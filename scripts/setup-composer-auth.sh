@@ -26,13 +26,6 @@ EOF
     exit 0
 fi
 
-# If COMPOSER_AUTH_NOVA_USERNAME and COMPOSER_AUTH_NOVA_PASSWORD are set, create COMPOSER_AUTH env var
-if [ -n "$COMPOSER_AUTH_NOVA_USERNAME" ] && [ -n "$COMPOSER_AUTH_NOVA_PASSWORD" ]; then
-    export COMPOSER_AUTH="{\"http-basic\":{\"nova.laravel.com\":{\"username\":\"$COMPOSER_AUTH_NOVA_USERNAME\",\"password\":\"$COMPOSER_AUTH_NOVA_PASSWORD\"}}}"
-    echo "COMPOSER_AUTH environment variable set for Nova repository"
-    exit 0
-fi
-
 echo "Warning: No Nova authentication credentials found"
 echo "Set either COMPOSER_AUTH or COMPOSER_AUTH_NOVA_USERNAME + COMPOSER_AUTH_NOVA_PASSWORD"
 exit 0
